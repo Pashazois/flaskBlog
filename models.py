@@ -33,7 +33,7 @@ class Post(db.Model):
 
 
 class Tag(db.Model):
-	id = db.Column(db.String(100))
+	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(100))
 	slug = db.Column(db.String(100))
 
