@@ -9,6 +9,12 @@ def slugify(s):
 
 
 
+post_tags = db.Table('post_tags',
+					 db.Column('post_id', db.Integer, db.ForeignKey('post.id')),
+					 db.Column('teg_id', db.Integer, db.ForeignKey('tag.id'))
+	)
+
+
 class Post(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	title = db.Column(db.String(140))
@@ -21,6 +27,8 @@ class Post(db.Model):
 		super(Post, self).__init__(*args, **kwargs)
 		self.generate_slug()
 
+
+	tags = db.relationship('Tag', secondary=post_tags, backref=db.backref('posts', lazy='dynamic'))
 
 	def generate_slug(self):
 		if self.title:
