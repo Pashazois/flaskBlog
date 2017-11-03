@@ -4,10 +4,17 @@
 	{{ post.title }}
 {% endblock %}
 
+
 {% block content_title %}
 	{{ post.title }}
 {% endblock %}
 
+
 {% block content %}
+	{% for tag in tags %}
+	<div class="tags">
+		<button type="button" class="btn btn-primary btn-sm mb-3">{{ tag.name }}</button>
+	</div>
+	{% endfor %}
 	{{ post.body }}
 {% endblock %}
