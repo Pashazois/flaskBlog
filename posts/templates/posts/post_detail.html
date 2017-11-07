@@ -13,7 +13,9 @@
 {% block content %}
 	{% for tag in tags %}
 	<div class="tags">
-		<button type="button" class="btn btn-primary btn-sm mb-3">{{ tag.name }}</button>
+		<a href="{{ url_for('posts.tag_detail', slug=tag.slug) }}">
+			<button type="button" class="btn btn-primary btn-sm mb-3">{{ tag.name }}</button>
+		</a>
 	</div>
 	{% endfor %}
 	{{ post.body }}
