@@ -12,10 +12,21 @@
 
 {% block content %}
 	
+	<div class="col-6">
 
-	<form action="">
+		<form action="{{ url_for('posts.create_post') }}" method='POST'>
+
+			{% for field in form %}
+				<div class="form-group">
+					{{ field.label(class='control-label') }}
+					{{ field(class='form-control') }}
+				</div>
+			{% endfor %}
+
+			<button type="submit" class="btn btn-outline-primary">Сохранить пост</button>
 		
-	</form>
+		</form>
 
+	</div>
 
 {% endblock %}
