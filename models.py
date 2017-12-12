@@ -55,6 +55,7 @@ class Tag(db.Model):
 	def __repr__(self):
 		return '{}'.format(self.name)
 		# return '<Tag id: {}, name: {}>'.format(self.id, self.name)
+		# Т.к. как в классе Tag не определен метод generate_slug при попытке создать tag через админку будет вызываться исключение.﻿
 
 
 ###security
